@@ -34,6 +34,7 @@ class DistanceRecordViewController: UIViewController, UITableViewDelegate, UITab
     {
         super.viewWillAppear(animated)
         
+        arrDistance.removeAllObjects()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
         appDelegate.managedObjectContext = appDelegate.getManagedObjectContext()
         // Create Entity Description

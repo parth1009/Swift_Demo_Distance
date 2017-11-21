@@ -18,6 +18,7 @@
 		B28F53251FC4776E009284C6 /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = B28F53241FC4776E009284C6 /* TestLocations.gpx */; };
 		B28F53281FC4809F009284C6 /* DistanceRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F53271FC4809F009284C6 /* DistanceRecordViewController.swift */; };
 		B28F532A1FC480E1009284C6 /* DistanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F53291FC480E1009284C6 /* DistanceTableViewCell.swift */; };
+		B28F532C1FC49010009284C6 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F532B1FC49010009284C6 /* CustomAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B28F53241FC4776E009284C6 /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
 		B28F53271FC4809F009284C6 /* DistanceRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceRecordViewController.swift; sourceTree = "<group>"; };
 		B28F53291FC480E1009284C6 /* DistanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceTableViewCell.swift; sourceTree = "<group>"; };
+		B28F532B1FC49010009284C6 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				B28F53221FC47293009284C6 /* DistanceViewController.swift */,
 				B28F53271FC4809F009284C6 /* DistanceRecordViewController.swift */,
 				B28F53291FC480E1009284C6 /* DistanceTableViewCell.swift */,
+				B28F532B1FC49010009284C6 /* CustomAnnotationView.swift */,
 			);
 			path = Practical_Parth;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				B28F53281FC4809F009284C6 /* DistanceRecordViewController.swift in Sources */,
 				B23155E61FBA1821006432B4 /* AppDelegate.swift in Sources */,
 				B28F53231FC47293009284C6 /* DistanceViewController.swift in Sources */,
+				B28F532C1FC49010009284C6 /* CustomAnnotationView.swift in Sources */,
 				B28F53211FC46C13009284C6 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

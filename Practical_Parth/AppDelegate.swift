@@ -9,11 +9,12 @@
 import UIKit
 import CoreData
 import MapKit
+import UserNotifications
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     var managedObjectContext: NSManagedObjectContext?
@@ -23,6 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization.
+                center.delegate = self
+        }
+        }
+        else {
+            // Fallback on earlier versions
+        }
         return true
     }
 
@@ -50,6 +61,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // app active
+        print("User Info = ",notification.request.content.userInfo)
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("test")
+        print("test")
+        
+    }
+    
     func getManagedObjectModel() -> NSManagedObjectModel
     {
         if (managedObjectModel != nil) {
@@ -69,11 +95,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.getManagedObjectModel())
         var storeURL: NSURL = NSURL(fileURLWithPath: (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]))
         storeURL = storeURL.appendingPathComponent("Practical_Parth.sqlite")! as NSURL
-        
-//        if (persistentStoreCoordinator?.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil))
-//        {
-//
-//        }
         do {
             try persistentStoreCoordinator?.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL as URL, options: nil)
         }
